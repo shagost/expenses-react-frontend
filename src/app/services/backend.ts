@@ -7,6 +7,12 @@ export interface IExpense {
   dia: string;
 }
 
+export interface IExpenseCategory {
+  categoriaId: number;
+  categoria: string;
+  valor: number;
+}
+
 export interface IUser {
   nome: string;
   email: string;

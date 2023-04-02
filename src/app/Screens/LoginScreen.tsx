@@ -22,8 +22,8 @@ interface ILoginScreenProps {
 }
 
 export default function LoginScreen({ onSignIn }: ILoginScreenProps) {
-  const [email, setEmail] = useState('shagost@hotmail.com');
-  const [password, setPassword] = useState('1234');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   function signIn(evt: FormEvent) {

@@ -13,7 +13,7 @@ export const MONTH = [
   'Dezembro',
 ];
 
-export const YEARS = [2020, 2021, 2022, 2023];
+export const YEARS = [2020, 2021];
 
 export function getToday() {
   return '2020-10-17';
