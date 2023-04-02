@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { formatNumber } from '../helpers/numberHelper';
-import { getExpensesEndpoint, IExpense } from '../services/backend';
+import { getExpensesEndpoint, IExpense, IUser } from '../services/backend';
 import ExpensesHeader from './ExpensesHeader';
 import ExpensesTable from './ExpensesTable';
 
-export default function Expenses() {
+interface IExpensesProps {
+  onSignOut: () => void;
+  user: IUser;
+}
+
+export default function Expenses(props: IExpensesProps) {
   const [desp, setDesp] = useState<IExpense[] | null>([]);
   const history = useHistory();
   const { month } = useParams<{ month: string }>();
@@ -39,6 +44,8 @@ export default function Expenses() {
   return (
     <>
       <ExpensesHeader
+        user={props.user}
+        onSignOut={props.onSignOut}
         month={month}
         total={total}
         toggleMonth={toggleMonth}

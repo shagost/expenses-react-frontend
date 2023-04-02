@@ -7,12 +7,16 @@ import {
 } from '@material-ui/core';
 import { useRef } from 'react';
 import { YEARS, MONTH } from '../helpers/dateHelper';
+import { IUser } from '../services/backend';
+import UserMenu from './UserMenu';
 
 interface IExpensesHeaderProps {
   month: string;
   total: string;
   toggleYear: (val: string) => void;
   toggleMonth: (val: string) => void;
+  onSignOut: () => void;
+  user: IUser;
 }
 
 export default function ExpensesHeader(props: IExpensesHeaderProps) {
@@ -46,6 +50,7 @@ export default function ExpensesHeader(props: IExpensesHeaderProps) {
           </Select>
         </FormControl>
       </Box>
+
       <Box className="w-40">
         <FormControl margin="normal" fullWidth>
           <InputLabel id="select-mes">Mês</InputLabel>
@@ -70,6 +75,7 @@ export default function ExpensesHeader(props: IExpensesHeaderProps) {
       <Box>
         Despesa total: <strong>{props.total}</strong>
       </Box>
+      <UserMenu user={props.user} onSignOut={props.onSignOut} />
     </Box>
   );
 }
